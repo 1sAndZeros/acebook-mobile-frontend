@@ -31,13 +31,13 @@ struct SignUpPageView: View {
                     .padding(.bottom, 20)
                     .accessibilityIdentifier("welcomeText")
 
-                VStack {
-                    SignUpInputView(label: "Username", placeholder: "John Doe")
-                    SignUpInputView(label: "Email", placeholder: "johndoe@example.com")
-                    SignUpInputView(label: "Password", placeholder: "********")
-                    SignUpInputView(label: "Confirm Pasword", placeholder: "********")
-                }.padding(.leading, 60).padding(.vertical, 20).background(Color("Secondary"))
-
+                VStack() {
+                    SignUpInputView(label: "Username", placeholder: "John Doe", icon: "person")
+                    SignUpInputView(label: "Email", placeholder: "johndoe@example.com", icon: "envelope")
+                    SignUpInputView(label: "Password", placeholder: "********", icon: "lock")
+                    SignUpInputView(label: "Confirm Pasword", placeholder: "********", icon: "checkmark")
+                }.frame(width: 350.0).padding(.leading, 10).padding(.vertical, 20)
+                Text("Error Message goes here").frame(height: 25).padding(.bottom, 30).foregroundColor(.red)
                 Button("Sign Up") {
                     // TODO: sign up logic
                 }
@@ -50,6 +50,7 @@ struct SignUpPageView: View {
                 
                 Spacer()
             }
+            .frame(width: 500.0)
         }.background(Color("Primary"))
     }
 }
@@ -65,11 +66,15 @@ struct SignUpInputView: View {
     @State var value: String = ""
     let label: String
     let placeholder: String
+    let icon: String
     
     var body: some View {
         HStack {
-            Text(label).frame(width: 100, alignment: .leading)
-            TextField(placeholder, text:$value)
+            Spacer()
+            Label(label, systemImage: icon)
+            .frame(width: 120, alignment: .leading)
+            TextField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle())
+            Spacer()
         }
     }
 }
