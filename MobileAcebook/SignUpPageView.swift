@@ -29,13 +29,13 @@ struct SignUpPageView: View {
                 Text("Sign Up")
                     .font(.largeTitle)
                     .padding(.bottom, 20)
-                    .accessibilityIdentifier("welcomeText")
+                    .accessibilityIdentifier("signup")
 
                 VStack() {
-                    SignUpInputView(label: "Username", placeholder: "John Doe", icon: "person")
-                    SignUpInputView(label: "Email", placeholder: "johndoe@example.com", icon: "envelope")
-                    SignUpInputView(label: "Password", placeholder: "********", icon: "lock")
-                    SignUpInputView(label: "Confirm Pasword", placeholder: "********", icon: "checkmark")
+                    SignUpInputView(label: "Username: ", placeholder: "John Doe", icon: "person")
+                    SignUpInputView(label: "Email: ", placeholder: "johndoe@example.com", icon: "envelope")
+                    SignUpInputView(label: "Password: ", placeholder: "********", icon: "lock")
+                    SignUpInputView(label: "Confirm Pasword: ", placeholder: "********", icon: "checkmark")
                 }.frame(width: 350.0).padding(.leading, 10).padding(.vertical, 20)
                 Text("Error Message goes here").frame(height: 25).padding(.bottom, 30).foregroundColor(.red)
                 Button("Sign Up") {
@@ -72,7 +72,7 @@ struct SignUpInputView: View {
         HStack {
             Spacer()
             Label(label, systemImage: icon)
-            .frame(width: 120, alignment: .leading)
+            .frame(width: 120, alignment: .trailing)
             TextField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
         }
