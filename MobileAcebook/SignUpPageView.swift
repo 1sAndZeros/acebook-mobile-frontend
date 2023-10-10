@@ -13,12 +13,13 @@ struct SignUpPageView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var verifyPassword: String = ""
+    @State private var errorMessage: String = ""
+    @State private var showAlert: Bool = false
     
     var body: some View {
         ZStack {
+            LinearGradient(colors: [Color("Secondary"), Color("Primary"), Color("Primary")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
             VStack {
-     
-                
                 Image("makers-logo")
                     .resizable()
                     .scaledToFit()
@@ -32,21 +33,58 @@ struct SignUpPageView: View {
                     .accessibilityIdentifier("signup")
 
                 VStack() {
-                    SignUpInputView(label: "Username: ", placeholder: "John Doe", icon: "person")
-                    SignUpInputView(label: "Email: ", placeholder: "johndoe@example.com", icon: "envelope")
-                    SignUpInputView(label: "Password: ", placeholder: "********", icon: "lock")
-                    SignUpInputView(label: "Confirm Pasword: ", placeholder: "********", icon: "checkmark")
+                    SignUpTextInputView(value: $username, label: "Username: ", placeholder: "John Doe", icon: "person")
+                    SignUpTextInputView(value: $email, label: "Email: ", placeholder: "johndoe@example.com", icon: "envelope")
+                    SignUpPasswordInputView(value: $password, label: "Password: ", placeholder: "********", icon: "lock")
+                    SignUpPasswordInputView(value: $verifyPassword, label: "Confirm Pasword: ", placeholder: "********", icon: "checkmark")
                 }.frame(width: 350.0).padding(.leading, 10).padding(.vertical, 20)
-                Text("Error Message goes here").frame(height: 25).padding(.bottom, 30).foregroundColor(.red)
-                Button("Sign Up") {
-                    // TODO: sign up logic
-                }
+                Text(errorMessage).frame(height: 25).padding(.bottom, 30).foregroundColor(.red)
+                Button(action: {
+                    if username.isEmpty {
+                        errorMessage = "Please enter a username"
+                        withAnimation {
+                          showAlert = true
+                        }
+                    } else if email.isEmpty && password.isEmpty {
+                            errorMessage = "Please enter your email and password"
+                            withAnimation {
+                              showAlert = true
+                            }
+                          } else if email.isEmpty {
+                            errorMessage = "Please enter your email"
+                            withAnimation {
+                              showAlert = true
+                            }
+                          } else if password.isEmpty {
+                              errorMessage = "Please enter your password"
+                              withAnimation {
+                                  showAlert = true
+                              }
+                          } else if verifyPassword.isEmpty {
+                              errorMessage = "Please confirm your password"
+                              withAnimation {
+                                  showAlert = true
+                              }
+                          } else if password != verifyPassword {
+                                errorMessage = "Passwords do not match"
+                                withAnimation {
+                                  showAlert = true
+                                }
+                          } else {
+                              errorMessage = ""
+                            // route to the next page
+                          }
+                        }, label: {
+                          Text("Sign Up")
+                            .foregroundColor(Color.white)
+                            .font(.headline)
+                        }
+                        ).padding(.vertical, 15)
+                          .padding(.horizontal, 30)
+                          .background(Color("CTA"))
+                          .foregroundColor(.white)
+                          .cornerRadius(10)
                 .accessibilityIdentifier("signUpButton")
-                .padding(.vertical, 15)
-                .padding(.horizontal, 30)
-                .background(Color("CTA"))
-                .foregroundColor(.white)
-                .cornerRadius(10)
                 
                 Spacer()
             }
@@ -61,20 +99,39 @@ struct SignUpPageView_Previews: PreviewProvider {
     }
 }
 
-struct SignUpInputView: View {
+struct SignUpTextInputView: View {
     
-    @State var value: String = ""
+    @Binding var value: String
     let label: String
     let placeholder: String
     let icon: String
-    
+   
     var body: some View {
         HStack {
             Spacer()
             Label(label, systemImage: icon)
             .frame(width: 120, alignment: .trailing)
-            TextField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle())
             Spacer()
         }
     }
 }
+
+struct SignUpPasswordInputView: View {
+    
+    @Binding var value: String
+    let label: String
+    let placeholder: String
+    let icon: String
+   
+    var body: some View {
+        HStack {
+            Spacer()
+            Label(label, systemImage: icon)
+            .frame(width: 120, alignment: .trailing)
+                SecureField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle())
+            Spacer()
+        }
+    }
+}
+
