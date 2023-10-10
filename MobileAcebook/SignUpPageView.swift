@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpPageView: View {
-    
+    let authService: AuthenticationService
     @State var username: String = ""
     @State var email: String = ""
     @State var password: String = ""
@@ -73,6 +73,8 @@ struct SignUpPageView: View {
                           } else {
                               errorMessage = ""
                             // route to the next page
+                              var newUser : User = User(username: username, email: email, password: password)
+                              authService.signUp(user: newUser)
                           }
                         }, label: {
                           Text("Sign Up")
@@ -95,7 +97,8 @@ struct SignUpPageView: View {
 
 struct SignUpPageView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpPageView()
+        let authService = AuthenticationService()
+        SignUpPageView(authService: authService)
     }
 }
 
