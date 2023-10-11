@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct WelcomePageView: View {
-    var body: some View {
-        NavigationView {
+        
+        var body: some View {
+            NavigationView {
             ZStack {
+                AcebookBg()
                 VStack {
                     Spacer()
                     
@@ -18,6 +20,8 @@ struct WelcomePageView: View {
                         .font(.largeTitle)
                         .padding(.bottom, 20)
                         .accessibilityIdentifier("welcomeText")
+                        .foregroundColor(Color("CTA"))
+                        .bold()
                     
                     Spacer()
                     
@@ -28,17 +32,19 @@ struct WelcomePageView: View {
                         .accessibilityIdentifier("makers-logo")
                     
                     Spacer()
+                    NavigationLink {
+                        let authService = AuthenticationService()
+                        SignUpPageView(authService: authService)
+                    } label: {
+                        ButtonView(text: "Sign Up Here")
+                    }
                     
                     NavigationLink {
                         let authService = AuthenticationService()
                         LoginPageView(authService: authService)
                     } label: {
-                        Text("Log In")
+                        ButtonView(text: "Login Here")
                     }
-//                    Button("Sign Up") {
-//                        // TODO: sign up logic
-//                    }
-//                    .accessibilityIdentifier("signUpButton")
                     
                     Spacer()
                 }
@@ -50,5 +56,20 @@ struct WelcomePageView: View {
 struct WelcomePageView_Previews: PreviewProvider {
     static var previews: some View {
         WelcomePageView()
+    }
+}
+
+struct ButtonView: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.headline)
+            .padding(.vertical, 15)
+            .padding(.horizontal, 30)
+            .frame(minWidth: 200.0)
+            .background(Color("CTA"))
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .accessibilityIdentifier("signUpButton")
     }
 }

@@ -13,15 +13,13 @@ struct LoginPageView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
-    
     @State private var errorMessage: String = ""
     @State private var showAlert: Bool = false
     @State private var goToFeed: Bool = false
     
     var body: some View {
         ZStack {
-            Color("Primary")
-                .ignoresSafeArea()
+            AcebookBg()
             VStack {
                 Image("makers-logo")
                     .resizable()
@@ -33,7 +31,7 @@ struct LoginPageView: View {
                 Spacer()
                 Text("Log In")
                     .font(.largeTitle)
-                    .foregroundColor(Color("Secondary"))
+                    .foregroundColor(Color("CTA"))
                     .bold()
                     .padding(.bottom, 40)
                 HStack {
@@ -97,7 +95,7 @@ struct LoginPageView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 NavigationLink(
-                                                    destination: WelcomePageView()
+                                                    destination: FeedPageView()
                                                         .navigationBarTitle("")
                                                         .navigationBarHidden(true),
                                                     isActive: $goToFeed
