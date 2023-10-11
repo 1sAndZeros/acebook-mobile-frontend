@@ -38,15 +38,15 @@ struct LoginPageView: View {
                     Label("Email:", systemImage: "envelope")
                         .frame(width: 120, alignment: .trailing)
                     TextField("Enter your email..", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textFieldStyle(RoundedBorderTextFieldStyle()).disableAutocorrection(true).autocapitalization(.none)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 HStack {
                     Label("Password:", systemImage: "lock")
                         .frame(width: 120, alignment: .trailing)
-                    TextField("Enter your password..", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    SecureField("Enter your password..", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle()).disableAutocorrection(true).autocapitalization(.none)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
