@@ -6,5 +6,9 @@
 //
 
 public protocol AuthenticationServiceProtocol {
+    
+    typealias AuthCallBack = (String?, Error?) -> Void
+    
     func signUp(user: User) -> Bool
+    func logIn(email: String, password: String, completion: @escaping AuthCallBack)
 }
