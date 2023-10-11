@@ -8,17 +8,47 @@
 import Foundation
 
 class AuthenticationService: AuthenticationServiceProtocol {
-    func signUp(user: User) -> Bool {
+    func signUp(user: User, completion: @escaping signUpCallback) {
         // Logic to call the backend API for signing up
-        var request = URLRequest(url: URL(string: "http://localhost:8080/tokens")!)
+        
+        let json: [String: Any] = ["email": user.email, "password": user.password, "username": user.username]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        let urlString = "http://localhost:8080/users"
+            guard let url = URL(string: urlString) else {
+                // If the URL is invalid, call the completion block with an error.
+                completion(nil, NSError(domain: "Invalid URL", code: 400, userInfo: nil))
+                return
+            }
+        
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = "email=\(user.email)".data(using: .utf8)
-        request.httpBody = "password=\(user.password)".data(using: .utf8)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            // Handle response here
+            
+            // Check if there was an error in the data task.
+                   if let error = error {
+                       // Call the completion block with the error.
+                       completion(nil, error)
+                       return
+                   }
+            
+            // Parse the fetched data to a String.
+                   if let data = data, let apiJSON = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                      let message = apiJSON["message"] as? String {
+                       // Call the completion block with the message.
+                       completion("\(message)", nil)
+                   } else {
+                       // If data parsing fails, call the completion block with an error.
+                       completion(nil, NSError(domain: "Invalid data", code: 500, userInfo: nil))
+                   }
         }
         task.resume()
-        return true // placeholder
     }
+}
+
+struct ApiData: Codable {
+    var message: String
 }
