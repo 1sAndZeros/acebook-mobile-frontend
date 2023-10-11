@@ -30,6 +30,8 @@ struct SignUpPageView: View {
                     .padding(.bottom, 50)
                 Text("Sign Up")
                     .font(.largeTitle)
+                    .foregroundColor(Color("CTA"))
+                    .bold()
                     .padding(.bottom, 20)
                     .accessibilityIdentifier("signup")
 
@@ -67,7 +69,7 @@ struct SignUpPageView: View {
                         }
                         )
                 NavigationLink(
-                                    destination: WelcomePageView()
+                    destination: LoginPageView(authService: AuthenticationService())
                                         .navigationBarTitle("")
                                         .navigationBarHidden(true),
                                     isActive: $goToLogin

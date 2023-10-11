@@ -20,6 +20,8 @@ struct WelcomePageView: View {
                         .font(.largeTitle)
                         .padding(.bottom, 20)
                         .accessibilityIdentifier("welcomeText")
+                        .foregroundColor(Color("CTA"))
+                        .bold()
                     
                     Spacer()
                     
@@ -39,7 +41,7 @@ struct WelcomePageView: View {
                     
                     NavigationLink {
                         let authService = AuthenticationService()
-                        SignUpPageView(authService: authService)
+                        LoginPageView(authService: authService)
                     } label: {
                         ButtonView(text: "Login Here")
                     }
