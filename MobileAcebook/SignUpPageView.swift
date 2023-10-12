@@ -12,6 +12,7 @@ struct SignUpPageView: View {
     @State var username: String = ""
     @State var email: String = ""
     @State var password: String = ""
+    @State var avatar: String = ""
     @State var verifyPassword: String = ""
     @State private var errorMessage: String = ""
     @State private var showAlert: Bool = false
@@ -47,7 +48,7 @@ struct SignUpPageView: View {
                     if errorMessage == "OK" {
                         errorMessage = ""
                         // route to the next page
-                        let newUser : User = User(username: username, email: email, password: password)
+                        let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
                         authService.signUp(user: newUser, completion: { (message, error) in
                             // This block is the completion block (JokeCallback).
                             

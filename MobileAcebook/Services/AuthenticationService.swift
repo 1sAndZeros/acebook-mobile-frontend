@@ -13,6 +13,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
         var token: String
         var message: String
     }
+
     
     struct ApiData: Codable {
         var message: String
@@ -103,4 +104,5 @@ class AuthenticationService: AuthenticationServiceProtocol {
         }
         task.resume()
     }
+    
 }

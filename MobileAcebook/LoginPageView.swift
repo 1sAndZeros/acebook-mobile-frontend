@@ -95,18 +95,17 @@ struct LoginPageView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 NavigationLink(
-                                                    destination: FeedPageView()
-                                                        .navigationBarTitle("")
-                                                        .navigationBarHidden(true),
-                                                    isActive: $goToFeed
-                                                ) {
-                                                    EmptyView()
-                                                }
+                    destination: FeedPageView()
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true),
+                        isActive: $goToFeed)
+                {
+                    EmptyView()
+                    }
                 Spacer()
             }
         }
     }
-        
 }
 
 
