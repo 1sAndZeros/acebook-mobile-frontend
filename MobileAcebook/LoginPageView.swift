@@ -95,7 +95,7 @@ struct LoginPageView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 NavigationLink(
-                                                    destination: FeedPageView()
+                                                    destination: NewPostView(postService: PostService())
                                                         .navigationBarTitle("")
                                                         .navigationBarHidden(true),
                                                     isActive: $goToFeed
@@ -106,7 +106,6 @@ struct LoginPageView: View {
             }
         }
     }
-        
 }
 
 
