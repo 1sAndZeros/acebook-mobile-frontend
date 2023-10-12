@@ -6,8 +6,22 @@
 //
 
 import SwiftUI
+import Foundation
+
+
+
+
 
 struct SignUpPageView: View {
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+
+
+    
+    
     let authService: AuthenticationService
     @State var username: String = ""
     @State var email: String = ""
@@ -22,6 +36,7 @@ struct SignUpPageView: View {
         ZStack {
             AcebookBg()
             VStack {
+                
                 Image("makers-logo")
                     .resizable()
                     .scaledToFit()
@@ -47,28 +62,32 @@ struct SignUpPageView: View {
                     errorMessage = validForm(username: username, password: password, email: email, verifyPassword: verifyPassword)
                     if errorMessage == "OK" {
                         errorMessage = ""
-                        // route to the next page
-                        let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
-                        authService.signUp(user: newUser, completion: { (message, error) in
-                            // This block is the completion block (JokeCallback).
-                            
-                            if let message = message {
-                                if message == "OK" {
-                                    // GO TO LOGIN PAGE
-                                    print(message)
-                                    goToLogin = true
-                                } else {
-                                    errorMessage = message
+                        // Check email format
+                        if isValidEmail(email) {
+                            // route to the next page
+                            let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
+                            authService.signUp(user: newUser, completion: { (message, error) in
+                                // This block is the completion block (JokeCallback).
+                                if let message = message {
+                                    if message == "OK" {
+                                        // GO TO LOGIN PAGE
+                                        print(message)
+                                        goToLogin = true
+                                    } else {
+                                        errorMessage = message
+                                    }
+                                } else if let error = error {
+                                    print("Error: \(error)")
                                 }
-                            } else if let error = error {
-                                print("Error: \(error)")
-                            }
-                        })
+                            })
+                        } else {
+                            errorMessage = "Invalid email format"
+                        }
                     }
                 }, label: {
-                          ButtonView(text: "Sign Up")
-                        }
-                        )
+                    ButtonView(text: "Sign Up")
+                })
+
                 NavigationLink(
                     destination: LoginPageView(authService: AuthenticationService())
                                         .navigationBarTitle("")
