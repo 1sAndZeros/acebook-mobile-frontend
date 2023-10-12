@@ -18,6 +18,12 @@ struct SignUpPageView: View {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
 
 
     
@@ -64,22 +70,33 @@ struct SignUpPageView: View {
                         errorMessage = ""
                         // Check email format
                         if isValidEmail(email) {
-                            // route to the next page
-                            let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
-                            authService.signUp(user: newUser, completion: { (message, error) in
-                                // This block is the completion block (JokeCallback).
-                                if let message = message {
-                                    if message == "OK" {
-                                        // GO TO LOGIN PAGE
-                                        print(message)
-                                        goToLogin = true
-                                    } else {
-                                        errorMessage = message
+                            // Check password format
+                            if isValidPassword(password) {
+                                // route to the next page
+                                let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
+                                authService.signUp(user: newUser, completion: { (message, error) in
+                                    // This block is the completion block (JokeCallback).
+                                    if let message = message {
+                                        if message == "OK" {
+                                            // GO TO LOGIN PAGE
+                                            print(message)
+                                            goToLogin = true
+                                        } else {
+                                            errorMessage = message
+                                        }
+                                    } else if let error = error {
+                                        print("Error: \(error)")
                                     }
-                                } else if let error = error {
-                                    print("Error: \(error)")
-                                }
-                            })
+                                })
+                            } else {
+                                errorMessage =
+                                    """
+                                        Must contain: 8 CHAR's + 1 Special + 1 UPPER
+                                    """
+                                
+                                
+                                
+                            }
                         } else {
                             errorMessage = "Invalid email format"
                         }
@@ -87,6 +104,7 @@ struct SignUpPageView: View {
                 }, label: {
                     ButtonView(text: "Sign Up")
                 })
+
 
                 NavigationLink(
                     destination: LoginPageView(authService: AuthenticationService())
