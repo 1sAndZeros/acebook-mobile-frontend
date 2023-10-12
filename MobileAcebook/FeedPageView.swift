@@ -41,6 +41,11 @@ struct FeedPageView: View {
                 VStack {
                 ForEach(posts, id: \._id) { post in
                         Text(post.message)
+                        .frame(width: 200)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        
                     }
                 }
                 .onAppear {
@@ -55,6 +60,7 @@ struct FeedPageView: View {
                         self.posts = posts.posts
                     }
                 }
+                Spacer()
             }
         }
     }
