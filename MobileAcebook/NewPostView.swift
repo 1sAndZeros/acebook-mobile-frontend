@@ -73,11 +73,14 @@ struct NewPostView: View {
                     }
                     )
                     
-                    NavigationLink {
-                        FeedPageView()
-                    } label: {
+                    NavigationLink(
+                        destination: FeedPageView()
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true),
+                            isActive: $goToFeed)
+                    {
                         EmptyView()
-                    }
+                        }
                 }.frame(width: 300).padding(.all, 20).background(Color(.white)).cornerRadius(20)
                 
                 Spacer()
