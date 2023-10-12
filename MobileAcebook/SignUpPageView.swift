@@ -73,7 +73,7 @@ struct SignUpPageView: View {
                             // Check password format
                             if isValidPassword(password) {
                                 // route to the next page
-                                let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
+                                let newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
                                 authService.signUp(user: newUser, completion: { (message, error) in
                                     // This block is the completion block (JokeCallback).
                                     if let message = message {

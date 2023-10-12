@@ -9,25 +9,45 @@ import SwiftUI
 
 struct FeedPageView: View {
     private var service = FeedService()
+    private var userService = UserService()
     @State var posts = [Post]()
-    
+    @State var user: User = User(_id: "", username: "", email: "", password: "", avatar: "")
+ 
     var body: some View {
         ZStack {
             AcebookBg()
             VStack {
                 HStack {
-                    Spacer()
-                    Text("Username")
+
+                    AsyncImage(url: URL(string: user.avatar)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 60, height: 60)
+                    .clipShape(Circle())
+//                    Text(user.username)
+                        .onAppear {
+                            guard var token = UserDefaults.standard.string(forKey: "token") else {
+                                return
+                            }
+                            userService.getUser(token: token) { (users, err) in
+                                guard var users = users else {
+                                    // handle error
+                                    return
+                                }
+                                self.user = users.user
+                            }
+                        }
                     Spacer()
                     Image("makers-logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 80, height: 80)
                         .accessibilityIdentifier("makers-logo")
-                    //                .padding(.top, 30)
                     Spacer()
                     NavigationLink {
-                        NewPostView(postService: PostService())
+                        NewPostView(postService: PostService(), user: user)
                     } label: {
                         Text("Post")
                             .frame(width: 60, height: 60)
@@ -35,8 +55,7 @@ struct FeedPageView: View {
                             .foregroundColor(.white)
                             .clipShape(Circle())
                     }
-                    Spacer()
-                }
+                }.frame(width: 350)
                 
                 VStack {
                 ForEach(posts, id: \._id) { post in

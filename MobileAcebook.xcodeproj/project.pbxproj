@@ -21,6 +21,7 @@
 		AE5D85E32AC9AFD2009680C6 /* MockAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */; };
 		AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */; };
 		AE5D85E82AC9B29A009680C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E72AC9B29A009680C6 /* User.swift */; };
+		DDC4639B2AD81945002DF16F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4639A2AD81945002DF16F /* UserService.swift */; };
 		DDE09FEF2AD43735004CA8C0 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE09FEE2AD43735004CA8C0 /* LoginPageView.swift */; };
 		E7933DD02AD4388300095F39 /* SignUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DCF2AD4388300095F39 /* SignUpPageView.swift */; };
 		E7933DD32AD68CFA00095F39 /* AcebookBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DD22AD68CFA00095F39 /* AcebookBg.swift */; };
@@ -69,6 +70,7 @@
 		AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthenticationService.swift; sourceTree = "<group>"; };
 		AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		AE5D85E72AC9B29A009680C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DDC4639A2AD81945002DF16F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DDE09FEE2AD43735004CA8C0 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		E7933DCF2AD4388300095F39 /* SignUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageView.swift; sourceTree = "<group>"; };
 		E7933DD22AD68CFA00095F39 /* AcebookBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcebookBg.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
 				81B27D232AD6E38700A2A628 /* FeedService.swift */,
+				DDC4639A2AD81945002DF16F /* UserService.swift */,
 				E7933DEF2AD6F31500095F39 /* PostService.swift */,
 			);
 			path = Services;
@@ -361,6 +364,7 @@
 				E7933DD32AD68CFA00095F39 /* AcebookBg.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				E7933DD52AD6AE4600095F39 /* FeedPageView.swift in Sources */,
+				DDC4639B2AD81945002DF16F /* UserService.swift in Sources */,
 				E7933DD02AD4388300095F39 /* SignUpPageView.swift in Sources */,
 				81B27D242AD6E38700A2A628 /* FeedService.swift in Sources */,
 				81B27D262AD6ED6C00A2A628 /* Posts.swift in Sources */,
