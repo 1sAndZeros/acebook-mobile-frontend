@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81B27D242AD6E38700A2A628 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B27D232AD6E38700A2A628 /* FeedService.swift */; };
+		81B27D262AD6ED6C00A2A628 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B27D252AD6ED6C00A2A628 /* Posts.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
 		AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B32AC8A224009680C6 /* Assets.xcassets */; };
 		AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B62AC8A224009680C6 /* Preview Assets.xcassets */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81B27D232AD6E38700A2A628 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		81B27D252AD6ED6C00A2A628 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAcebookApp.swift; sourceTree = "<group>"; };
 		AE5D85B32AC8A224009680C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				81B27D232AD6E38700A2A628 /* FeedService.swift */,
 				E7933DEF2AD6F31500095F39 /* PostService.swift */,
 			);
 			path = Services;
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E72AC9B29A009680C6 /* User.swift */,
+				81B27D252AD6ED6C00A2A628 /* Posts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,6 +362,8 @@
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				E7933DD52AD6AE4600095F39 /* FeedPageView.swift in Sources */,
 				E7933DD02AD4388300095F39 /* SignUpPageView.swift in Sources */,
+				81B27D242AD6E38700A2A628 /* FeedService.swift in Sources */,
+				81B27D262AD6ED6C00A2A628 /* Posts.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
 				E7933DEB2AD6DB3100095F39 /* CustomFonts.swift in Sources */,
