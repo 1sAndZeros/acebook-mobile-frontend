@@ -48,7 +48,7 @@ struct SignUpPageView: View {
                     if errorMessage == "OK" {
                         errorMessage = ""
                         // route to the next page
-                        let newUser : User = User(username: username, email: email, password: password, avatar: avatar)
+                        let newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
                         authService.signUp(user: newUser, completion: { (message, error) in
                             // This block is the completion block (JokeCallback).
                             
