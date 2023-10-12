@@ -20,6 +20,6 @@ public struct Post: Codable {
     var message: String
     var createdBy: String
     var createdAt: String
-    var image: String
+//    var image: String
 }
 

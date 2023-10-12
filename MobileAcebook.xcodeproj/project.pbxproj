@@ -26,6 +26,12 @@
 		E7933DD32AD68CFA00095F39 /* AcebookBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DD22AD68CFA00095F39 /* AcebookBg.swift */; };
 		E7933DD52AD6AE4600095F39 /* FeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DD42AD6AE4600095F39 /* FeedPageView.swift */; };
 		E7933DD72AD6AE6A00095F39 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DD62AD6AE6A00095F39 /* NewPostView.swift */; };
+		E7933DEB2AD6DB3100095F39 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DE72AD6DB3100095F39 /* CustomFonts.swift */; };
+		E7933DEC2AD6DB3100095F39 /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7933DE82AD6DB3100095F39 /* Rajdhani-Regular.ttf */; };
+		E7933DED2AD6DB3100095F39 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DE92AD6DB3100095F39 /* Font+Extension.swift */; };
+		E7933DEE2AD6DB3100095F39 /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */; };
+		E7933DF02AD6F31500095F39 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DEF2AD6F31500095F39 /* PostService.swift */; };
+		E7933DF22AD6F38800095F39 /* PostServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DF12AD6F38800095F39 /* PostServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +74,13 @@
 		E7933DD22AD68CFA00095F39 /* AcebookBg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcebookBg.swift; sourceTree = "<group>"; };
 		E7933DD42AD6AE4600095F39 /* FeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageView.swift; sourceTree = "<group>"; };
 		E7933DD62AD6AE6A00095F39 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		E7933DDE2AD6D7F500095F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E7933DE72AD6DB3100095F39 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		E7933DE82AD6DB3100095F39 /* Rajdhani-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rajdhani-Regular.ttf"; sourceTree = "<group>"; };
+		E7933DE92AD6DB3100095F39 /* Font+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rajdhani-Bold.ttf"; sourceTree = "<group>"; };
+		E7933DEF2AD6F31500095F39 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		E7933DF12AD6F38800095F39 /* PostServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +131,11 @@
 		AE5D85AE2AC8A221009680C6 /* MobileAcebook */ = {
 			isa = PBXGroup;
 			children = (
+				E7933DE72AD6DB3100095F39 /* CustomFonts.swift */,
+				E7933DE92AD6DB3100095F39 /* Font+Extension.swift */,
+				E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */,
+				E7933DE82AD6DB3100095F39 /* Rajdhani-Regular.ttf */,
+				E7933DDE2AD6D7F500095F39 /* Info.plist */,
 				E7933DD12AD68CC800095F39 /* GlobalViews */,
 				AE5D85E42AC9B060009680C6 /* Protocols */,
 				AE5D85DF2AC9AF83009680C6 /* Models */,
@@ -166,6 +184,7 @@
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
 				81B27D232AD6E38700A2A628 /* FeedService.swift */,
+				E7933DEF2AD6F31500095F39 /* PostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */,
+				E7933DF12AD6F38800095F39 /* PostServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -307,8 +327,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7933DEE2AD6DB3100095F39 /* Rajdhani-Bold.ttf in Resources */,
 				AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */,
 				AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */,
+				E7933DEC2AD6DB3100095F39 /* Rajdhani-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +357,7 @@
 			files = (
 				AE5D85E12AC9AFA9009680C6 /* AuthenticationService.swift in Sources */,
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
+				E7933DED2AD6DB3100095F39 /* Font+Extension.swift in Sources */,
 				E7933DD32AD68CFA00095F39 /* AcebookBg.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				E7933DD52AD6AE4600095F39 /* FeedPageView.swift in Sources */,
@@ -343,6 +366,9 @@
 				81B27D262AD6ED6C00A2A628 /* Posts.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
+				E7933DEB2AD6DB3100095F39 /* CustomFonts.swift in Sources */,
+				E7933DF02AD6F31500095F39 /* PostService.swift in Sources */,
+				E7933DF22AD6F38800095F39 /* PostServiceProtocol.swift in Sources */,
 				DDE09FEF2AD43735004CA8C0 /* LoginPageView.swift in Sources */,
 				E7933DD72AD6AE6A00095F39 /* NewPostView.swift in Sources */,
 			);
@@ -507,6 +533,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MobileAcebook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileAcebook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -535,6 +562,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MobileAcebook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileAcebook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

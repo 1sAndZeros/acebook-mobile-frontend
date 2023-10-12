@@ -27,7 +27,7 @@ struct FeedPageView: View {
                     //                .padding(.top, 30)
                     Spacer()
                     NavigationLink {
-                        NewPostView()
+                        NewPostView(postService: PostService())
                     } label: {
                         Text("Post")
                             .frame(width: 60, height: 60)
