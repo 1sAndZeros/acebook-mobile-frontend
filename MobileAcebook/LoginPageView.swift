@@ -55,7 +55,6 @@ struct LoginPageView: View {
                                 Text(errorMessage)
                                     .foregroundColor(.red)
                                     .opacity(showAlert ? 1 : 0)
-//                                    .withAnimation(.easeInOut(duration: 0.3))
                             }
                 Button(action: {
                     if email.isEmpty && password.isEmpty {

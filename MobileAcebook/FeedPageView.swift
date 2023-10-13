@@ -12,6 +12,17 @@ struct FeedPageView: View {
     private var userService = UserService()
     @State var posts = [Post]()
     @State var user: User = User(_id: "", username: "", email: "", password: "", avatar: "")
+    @State private var goToHome: Bool = false
+    
+    func logout() {
+        // Remove the token from UserDefaults or wherever it is stored
+        UserDefaults.standard.removeObject(forKey: "token")
+        
+        // Reset the email and password fields
+//        user.email = ""
+//        user.password = ""
+        goToHome = true
+    }
  
     var body: some View {
         ZStack {
@@ -46,15 +57,25 @@ struct FeedPageView: View {
                         .frame(width: 80, height: 80)
                         .accessibilityIdentifier("makers-logo")
                     Spacer()
-                    NavigationLink {
-                        NewPostView(postService: PostService(), user: user)
-                    } label: {
-                        Text("Post")
-                            .frame(width: 60, height: 60)
-                            .background(Color("CTA"))
-                            .foregroundColor(.white)
-                            .clipShape(Circle())
+                    Button(action: {
+                        logout()
+                    }, label: {
+                        Image(systemName: "person.crop.circle.badge.xmark")
+                    })
+                    .frame(width: 60, height: 60)
+                    .background(Color("AccentColor"))
+                    .foregroundColor(Color("Primary"))
+                    .clipShape(Circle())
+                    
+                    NavigationLink(
+                        destination: WelcomePageView()
+                            .navigationBarTitle("")
+                            .navigationBarHidden(true),
+                        isActive: $goToHome)
+                    {
+                        EmptyView()
                     }
+                    
                 }.frame(width: 350)
                 
                 VStack {
@@ -80,6 +101,16 @@ struct FeedPageView: View {
                     }
                 }
                 Spacer()
+                NavigationLink {
+                    NewPostView(postService: PostService(), user: user)
+                } label: {
+                    Image(systemName: "square.and.pencil")
+                        .frame(width: 70, height: 70)
+                        .imageScale(.large)
+                        .background(Color("CTA"))
+                        .foregroundColor(Color("Primary"))
+                        .clipShape(Circle())
+                }
             }
         }
     }

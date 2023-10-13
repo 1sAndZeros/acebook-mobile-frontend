@@ -17,11 +17,10 @@ struct WelcomePageView: View {
                     Spacer()
                     
                     Text("Welcome to Acebook!")
-                        .font(.largeTitle)
+                        .font(.custom(.bold, size: 36))
                         .padding(.bottom, 20)
                         .accessibilityIdentifier("welcomeText")
                         .foregroundColor(Color("CTA"))
-                        .bold()
                     
                     Spacer()
                     
@@ -63,12 +62,12 @@ struct ButtonView: View {
     var text: String
     var body: some View {
         Text(text)
-            .font(.headline)
+            .font(.custom(.bold, size: 20))
             .padding(.vertical, 15)
             .padding(.horizontal, 30)
             .frame(minWidth: 200.0)
             .background(Color("CTA"))
-            .foregroundColor(.white)
+            .foregroundColor(Color("Primary"))
             .cornerRadius(10)
             .accessibilityIdentifier("signUpButton")
     }
