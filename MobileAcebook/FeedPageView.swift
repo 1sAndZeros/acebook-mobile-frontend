@@ -79,12 +79,23 @@ struct FeedPageView: View {
                 
                 VStack {
                 ForEach(posts, id: \._id) { post in
+                    VStack {
+                        HStack {
+                            AsyncImage(url: URL(string: post.createdBy.avatar)) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            Text(post.createdBy.username)
+                            Spacer()
+                        }.padding(.bottom, 20)
                         Text(post.message)
-                        .frame(width: 200)
+                    }.frame(width: 300)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(10)
-                        
                     }
                 }
                 .onAppear {

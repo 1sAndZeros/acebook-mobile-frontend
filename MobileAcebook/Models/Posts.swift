@@ -18,7 +18,7 @@ public struct Post: Codable {
 //    var comments: Int
     var _id: String
     var message: String
-    var createdBy: String
+    var createdBy: User
     var createdAt: String
 //    var image: String
 }
