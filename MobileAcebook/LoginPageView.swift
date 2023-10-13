@@ -75,7 +75,8 @@ struct LoginPageView: View {
                     } else {
                         errorMessage = ""
                         authService.logIn(email: email, password: password, completion: { (token, error) in
-                            if let token = token {
+                            
+                            if token != nil {
                                 goToFeed = true
                             } else {
                                 showAlert = true

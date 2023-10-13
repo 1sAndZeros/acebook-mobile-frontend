@@ -37,13 +37,12 @@ struct FeedPageView: View {
                     }
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
-//                    Text(user.username)
                         .onAppear {
-                            guard var token = UserDefaults.standard.string(forKey: "token") else {
+                            guard let token = UserDefaults.standard.string(forKey: "token") else {
                                 return
                             }
                             userService.getUser(token: token) { (users, err) in
-                                guard var users = users else {
+                                guard let users = users else {
                                     // handle error
                                     return
                                 }
@@ -76,7 +75,7 @@ struct FeedPageView: View {
                         EmptyView()
                     }
                     
-                }.frame(width: 350)
+                }.frame(width: 350).padding(.bottom, 40)
                 
                 VStack {
                 ForEach(posts, id: \._id) { post in
@@ -89,11 +88,11 @@ struct FeedPageView: View {
                     }
                 }
                 .onAppear {
-                    guard var token = UserDefaults.standard.string(forKey: "token") else {
+                    guard let token = UserDefaults.standard.string(forKey: "token") else {
                         return
                     }
                     service.loadPosts(token: token) { (posts, err) in
-                        guard var posts = posts else {
+                        guard let posts = posts else {
                             // handle error
                             return
                         }

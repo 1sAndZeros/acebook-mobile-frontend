@@ -77,7 +77,7 @@ struct SignUpPageView: View {
                                 if avatar == "" {
                                     avatar = "https://i.pravatar.cc/150?u=\(username)"
                                 }
-                                var newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
+                                let newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
                                 authService.signUp(user: newUser, completion: { (message, error) in
                                     // This block is the completion block (JokeCallback).
                                     if let message = message {

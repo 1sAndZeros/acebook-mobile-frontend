@@ -23,10 +23,6 @@ class UserService {
                 return
             }
             
-            print("data1\(data)")
-            print("response1\(response)")
-            print("error1\(error)")
-            
             
             if let data = data {
                 let decoder = JSONDecoder()
@@ -35,7 +31,6 @@ class UserService {
                     print(users)
                     completion(users, nil)
                 } else {
-                    print("error2\(error)")
                     completion(nil, NSError(domain: "Invalid data", code: 500, userInfo: nil))
                     
                 }
