@@ -43,15 +43,15 @@ struct SignUpPageView: View {
             AcebookBg()
             VStack {
                 
-                Image("makers-logo")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
-                    .accessibilityIdentifier("makers-logo")
+                    .accessibilityIdentifier("logo")
                     .padding(.top, 30)
                     .padding(.bottom, 50)
                 Text("Sign Up")
-                    .font(.largeTitle)
+                    .font(.custom(.bold, size: 36))
                     .foregroundColor(Color("CTA"))
                     .bold()
                     .padding(.bottom, 20)
@@ -62,6 +62,7 @@ struct SignUpPageView: View {
                     SignUpTextInputView(value: $email, label: "Email: ", placeholder: "johndoe@example.com", icon: "envelope")
                     SignUpPasswordInputView(value: $password, label: "Password: ", placeholder: "********", icon: "lock")
                     SignUpPasswordInputView(value: $verifyPassword, label: "Confirm Pasword: ", placeholder: "********", icon: "checkmark")
+                    SignUpTextInputView(value: $avatar, label: "Avatar: ", placeholder: "Avatar URL", icon: "photo")
                 }.frame(width: 350.0).padding(.leading, 10).padding(.vertical, 20)
                 Text(errorMessage).frame(height: 25).padding(.bottom, 30).foregroundColor(.red)
                 Button(action: {
@@ -73,7 +74,10 @@ struct SignUpPageView: View {
                             // Check password format
                             if isValidPassword(password) {
                                 // route to the next page
-                                let newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
+                                if avatar == "" {
+                                    avatar = "https://i.pravatar.cc/150?u=\(username)"
+                                }
+                                var newUser : User = User(_id: "", username: username, email: email, password: password, avatar: avatar)
                                 authService.signUp(user: newUser, completion: { (message, error) in
                                     // This block is the completion block (JokeCallback).
                                     if let message = message {
@@ -89,13 +93,7 @@ struct SignUpPageView: View {
                                     }
                                 })
                             } else {
-                                errorMessage =
-                                    """
-                                        Must contain: 8 CHAR's + 1 Special + 1 UPPER
-                                    """
-                                
-                                
-                                
+                                errorMessage = "Must contain: 8 CHAR's + 1 Special + 1 UPPER"
                             }
                         } else {
                             errorMessage = "Invalid email format"
@@ -175,6 +173,7 @@ struct SignUpPasswordInputView: View {
             Label(label, systemImage: icon)
             .frame(width: 120, alignment: .trailing)
                 SecureField(placeholder, text:$value).textFieldStyle(RoundedBorderTextFieldStyle()).disableAutocorrection(true).autocapitalization(.none)
+                .textContentType(.newPassword)
             Spacer()
         }
     }

@@ -33,6 +33,8 @@
 		E7933DEE2AD6DB3100095F39 /* Rajdhani-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */; };
 		E7933DF02AD6F31500095F39 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DEF2AD6F31500095F39 /* PostService.swift */; };
 		E7933DF22AD6F38800095F39 /* PostServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7933DF12AD6F38800095F39 /* PostServiceProtocol.swift */; };
+		E7933DF62AD969A100095F39 /* Pricedown-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7933DF52AD969A100095F39 /* Pricedown-Regular.ttf */; };
+		E7933DF82AD96AA500095F39 /* AgencyFB-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7933DF72AD96AA400095F39 /* AgencyFB-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rajdhani-Bold.ttf"; sourceTree = "<group>"; };
 		E7933DEF2AD6F31500095F39 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		E7933DF12AD6F38800095F39 /* PostServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceProtocol.swift; sourceTree = "<group>"; };
+		E7933DF52AD969A100095F39 /* Pricedown-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pricedown-Regular.ttf"; sourceTree = "<group>"; };
+		E7933DF72AD96AA400095F39 /* AgencyFB-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AgencyFB-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 		AE5D85AE2AC8A221009680C6 /* MobileAcebook */ = {
 			isa = PBXGroup;
 			children = (
+				E7933DF72AD96AA400095F39 /* AgencyFB-Bold.ttf */,
+				E7933DF52AD969A100095F39 /* Pricedown-Regular.ttf */,
 				E7933DE72AD6DB3100095F39 /* CustomFonts.swift */,
 				E7933DE92AD6DB3100095F39 /* Font+Extension.swift */,
 				E7933DEA2AD6DB3100095F39 /* Rajdhani-Bold.ttf */,
@@ -330,9 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7933DF62AD969A100095F39 /* Pricedown-Regular.ttf in Resources */,
 				E7933DEE2AD6DB3100095F39 /* Rajdhani-Bold.ttf in Resources */,
 				AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */,
 				AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */,
+				E7933DF82AD96AA500095F39 /* AgencyFB-Bold.ttf in Resources */,
 				E7933DEC2AD6DB3100095F39 /* Rajdhani-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

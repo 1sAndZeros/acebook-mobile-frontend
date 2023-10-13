@@ -14,21 +14,21 @@ struct WelcomePageView: View {
             ZStack {
                 AcebookBg()
                 VStack {
-                    Spacer()
                     
-                    Text("Welcome to Acebook!")
-                        .font(.custom(.bold, size: 36))
-                        .padding(.bottom, 20)
+                    Text("Welcome to\nAcebook!")
+                        .font(.custom(.bold, size: 48))
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 20)
                         .accessibilityIdentifier("welcomeText")
                         .foregroundColor(Color("CTA"))
                     
                     Spacer()
                     
-                    Image("makers-logo")
+                    Image("logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
-                        .accessibilityIdentifier("makers-logo")
+                        .accessibilityIdentifier("logo")
                     
                     Spacer()
                     NavigationLink {

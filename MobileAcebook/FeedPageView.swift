@@ -51,11 +51,11 @@ struct FeedPageView: View {
                             }
                         }
                     Spacer()
-                    Image("makers-logo")
+                    Image("logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 80, height: 80)
-                        .accessibilityIdentifier("makers-logo")
+                        .accessibilityIdentifier("logo")
                     Spacer()
                     Button(action: {
                         logout()

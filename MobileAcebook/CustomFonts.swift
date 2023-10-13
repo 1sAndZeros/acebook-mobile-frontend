@@ -8,7 +8,7 @@
 import Foundation
 
 enum CustomFont: String {
-    case regular = "Rajdhani-Regular"
-    case bold = "Rajdhani-Bold"
+//    case regular = "Pricedown-Regular"
+    case bold = "AgencyFB-Bold"
 }
 

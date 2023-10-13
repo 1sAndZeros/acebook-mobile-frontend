@@ -20,7 +20,8 @@ class AuthenticationService: AuthenticationServiceProtocol {
     }
     
     func signUp(user: User, completion: @escaping signUpCallback) {
-        let json: [String: Any] = ["email": user.email, "password": user.password, "username": user.username]
+        
+        let json: [String: Any] = ["email": user.email, "password": user.password, "username": user.username, "avatar": user.avatar]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         let urlString = "http://localhost:8080/users"
