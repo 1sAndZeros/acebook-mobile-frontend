@@ -21,16 +21,16 @@ struct LoginPageView: View {
         ZStack {
             AcebookBg()
             VStack {
-                Image("makers-logo")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150, height: 150)
-                    .accessibilityIdentifier("makers-logo")
+                    .accessibilityIdentifier("logo")
                     .padding(.top, 30)
                     .padding(.bottom, -100)
                 Spacer()
                 Text("Log In")
-                    .font(.largeTitle)
+                    .font(.custom(.bold, size: 36))
                     .foregroundColor(Color("CTA"))
                     .bold()
                     .padding(.bottom, 40)
@@ -55,7 +55,6 @@ struct LoginPageView: View {
                                 Text(errorMessage)
                                     .foregroundColor(.red)
                                     .opacity(showAlert ? 1 : 0)
-//                                    .withAnimation(.easeInOut(duration: 0.3))
                             }
                 Button(action: {
                     if email.isEmpty && password.isEmpty {
@@ -85,15 +84,9 @@ struct LoginPageView: View {
                         })
                     }
                 }, label: {
-                    Text("Log In")
-                        .foregroundColor(Color.white)
-                        .font(.headline)
+                    ButtonView(text: "Login")
                 }
-                ).padding(.vertical, 15)
-                    .padding(.horizontal, 30)
-                    .background(Color("CTA"))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                )
                 NavigationLink(
                     destination: FeedPageView()
                         .navigationBarTitle("")

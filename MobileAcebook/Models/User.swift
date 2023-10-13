@@ -6,13 +6,13 @@
 //
 
 public struct Users: Codable {
-    let user: User
-    let token: String
+    var user: User
+    var token: String
 }
 public struct User: Codable {
-    let _id: String
-    let username: String
-    let email: String
-    let password: String
-    let avatar: String
+    var _id: String
+    var username: String
+    var email: String
+    var password: String
+    var avatar: String
 }

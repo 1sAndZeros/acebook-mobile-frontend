@@ -19,11 +19,11 @@ struct NewPostView: View {
         ZStack {
             AcebookBg()
             VStack {
-                Image("makers-logo")
+                Image("logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
-                    .accessibilityIdentifier("makers-logo")
+                    .accessibilityIdentifier("logo")
                 
                 Text("New Post").font(.custom(.bold, size: 36))
                     .padding(.bottom, 20)
@@ -69,7 +69,12 @@ struct NewPostView: View {
                             })
                         }
                     }, label: {
-                        ButtonView(text: "Post").bold()
+                        Image(systemName: "square.and.pencil")
+                            .frame(width: 70, height: 70)
+                            .imageScale(.large)
+                            .background(Color("CTA"))
+                            .foregroundColor(Color("Primary"))
+                            .clipShape(Circle())
                     }
                     )
                     

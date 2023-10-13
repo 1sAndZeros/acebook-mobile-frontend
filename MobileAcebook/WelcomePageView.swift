@@ -14,22 +14,21 @@ struct WelcomePageView: View {
             ZStack {
                 AcebookBg()
                 VStack {
-                    Spacer()
                     
-                    Text("Welcome to Acebook!")
-                        .font(.largeTitle)
-                        .padding(.bottom, 20)
+                    Text("Welcome to\nAcebook!")
+                        .font(.custom(.bold, size: 48))
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 20)
                         .accessibilityIdentifier("welcomeText")
                         .foregroundColor(Color("CTA"))
-                        .bold()
                     
                     Spacer()
                     
-                    Image("makers-logo")
+                    Image("logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
-                        .accessibilityIdentifier("makers-logo")
+                        .accessibilityIdentifier("logo")
                     
                     Spacer()
                     NavigationLink {
@@ -63,12 +62,12 @@ struct ButtonView: View {
     var text: String
     var body: some View {
         Text(text)
-            .font(.headline)
+            .font(.custom(.bold, size: 20))
             .padding(.vertical, 15)
             .padding(.horizontal, 30)
             .frame(minWidth: 200.0)
             .background(Color("CTA"))
-            .foregroundColor(.white)
+            .foregroundColor(Color("Primary"))
             .cornerRadius(10)
             .accessibilityIdentifier("signUpButton")
     }

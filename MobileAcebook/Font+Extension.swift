@@ -53,6 +53,12 @@ extension Font {
        var font = "Rajdhani-Regular"
        switch weight {
        case .bold: font = "Rajdhani-Bold"
+       case .heavy: font = "Rajdhani-Bold"
+       case .light: font = "Rajdhani-Regular"
+       case .medium: font = "OpenSans-Regular"
+       case .semibold: font = "Rajdhani-Bold"
+       case .thin: font = "Rajdhani-Regular"
+       case .ultraLight: font = "Rajdhani-Regular"
      
        default: break
        }
